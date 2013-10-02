@@ -58,7 +58,7 @@
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSLog(@"Count: %lu",(unsigned long)self.category.count);
+    NSLog(@"Category count: %lu",(unsigned long)self.category.count);
     return self.category.count;
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -81,6 +81,7 @@
 }
 
 - (IBAction)doneBtnPrsd:(id)sender {
+        //Вставить код сюда
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

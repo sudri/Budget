@@ -21,6 +21,7 @@
 		9436639417FC0A960020E97F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9436639217FC0A960020E97F /* InfoPlist.strings */; };
 		9436639617FC0A960020E97F /* BudgetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9436639517FC0A960020E97F /* BudgetTests.m */; };
 		943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663A117FC0BCC0020E97F /* EPNewExpenditures.m */; };
+		943663A517FC19C60020E97F /* EPAddCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663A417FC19C60020E97F /* EPAddCategoryView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		9436639517FC0A960020E97F /* BudgetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BudgetTests.m; sourceTree = "<group>"; };
 		943663A017FC0BCC0020E97F /* EPNewExpenditures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPNewExpenditures.h; sourceTree = "<group>"; };
 		943663A117FC0BCC0020E97F /* EPNewExpenditures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPNewExpenditures.m; sourceTree = "<group>"; };
+		943663A317FC19C60020E97F /* EPAddCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAddCategoryView.h; sourceTree = "<group>"; };
+		943663A417FC19C60020E97F /* EPAddCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAddCategoryView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				9436639F17FC0B650020E97F /* ViewControllers */,
-				9436637917FC0A950020E97F /* EPAppDelegate.h */,
-				9436637A17FC0A950020E97F /* EPAppDelegate.m */,
 				9436637C17FC0A960020E97F /* Main.storyboard */,
 				9436638217FC0A960020E97F /* Images.xcassets */,
 				9436637117FC0A950020E97F /* Supporting Files */,
@@ -125,6 +126,8 @@
 		9436637117FC0A950020E97F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9436637917FC0A950020E97F /* EPAppDelegate.h */,
+				9436637A17FC0A950020E97F /* EPAppDelegate.m */,
 				9436637217FC0A950020E97F /* Budget-Info.plist */,
 				9436637317FC0A950020E97F /* InfoPlist.strings */,
 				9436637617FC0A950020E97F /* main.m */,
@@ -156,6 +159,8 @@
 			children = (
 				943663A017FC0BCC0020E97F /* EPNewExpenditures.h */,
 				943663A117FC0BCC0020E97F /* EPNewExpenditures.m */,
+				943663A317FC19C60020E97F /* EPAddCategoryView.h */,
+				943663A417FC19C60020E97F /* EPAddCategoryView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9436637717FC0A950020E97F /* main.m in Sources */,
+				943663A517FC19C60020E97F /* EPAddCategoryView.m in Sources */,
 				943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */,
 				9436637B17FC0A950020E97F /* EPAppDelegate.m in Sources */,
 			);
