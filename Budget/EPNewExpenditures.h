@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EPNewExpenditures : UIViewController
+@interface EPNewExpenditures : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBtn;
+@property (weak, nonatomic) IBOutlet UITextField *nameExpend;
+@property (weak, nonatomic) IBOutlet UITextField *categoryExpend;
+@property (weak, nonatomic) IBOutlet UITextField *sumExpend;
+
+@property NSArray *category;
 
 - (IBAction)cancelBtnPrsd:(id)sender;
 - (IBAction)doneBtnPrsd:(id)sender;
+- (IBAction)backgroundTap:(id)sender;
 
 @end

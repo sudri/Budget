@@ -45,7 +45,7 @@
                         <viewControllerLayoutGuide type="top" id="75d-kM-Dsj"/>
                         <viewControllerLayoutGuide type="bottom" id="nvB-uI-U6Z"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KJd-VX-noj">
+                    <view key="view" contentMode="scaleToFill" id="KJd-VX-noj" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -105,12 +105,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="yMl-lE-boH" eventType="touchDown" id="yS4-8x-DQf"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="BC8-uV-An1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelBtn" destination="lhQ-jX-C4q" id="aQs-Um-obR"/>
+                        <outlet property="categoryExpend" destination="iFf-em-jck" id="Tj7-eP-bfY"/>
                         <outlet property="doneBtn" destination="Eud-QA-OeI" id="JNH-yN-pFo"/>
+                        <outlet property="nameExpend" destination="EEg-zQ-LJg" id="Ama-Az-dc8"/>
+                        <outlet property="sumExpend" destination="UfF-y2-5dx" id="SEz-Pa-CvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l49-Im-6k4" userLabel="First Responder" sceneMemberID="firstResponder"/>
