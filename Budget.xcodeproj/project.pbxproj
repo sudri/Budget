@@ -22,6 +22,10 @@
 		9436639617FC0A960020E97F /* BudgetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9436639517FC0A960020E97F /* BudgetTests.m */; };
 		943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663A117FC0BCC0020E97F /* EPNewExpenditures.m */; };
 		943663A517FC19C60020E97F /* EPAddCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663A417FC19C60020E97F /* EPAddCategoryView.m */; };
+		943663A817FC2BC10020E97F /* EPCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663A717FC2BC10020E97F /* EPCategoriesViewController.m */; };
+		943663AB17FC2CB30020E97F /* EPExpendituresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663AA17FC2CB30020E97F /* EPExpendituresViewController.m */; };
+		94B8EC3317FC38690083D95E /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94B8EC3117FC38690083D95E /* CoreDataModel.xcdatamodeld */; };
+		94B8EC3517FC3C730083D95E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B8EC3417FC3C730083D95E /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,12 @@
 		943663A117FC0BCC0020E97F /* EPNewExpenditures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPNewExpenditures.m; sourceTree = "<group>"; };
 		943663A317FC19C60020E97F /* EPAddCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAddCategoryView.h; sourceTree = "<group>"; };
 		943663A417FC19C60020E97F /* EPAddCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAddCategoryView.m; sourceTree = "<group>"; };
+		943663A617FC2BC10020E97F /* EPCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCategoriesViewController.h; sourceTree = "<group>"; };
+		943663A717FC2BC10020E97F /* EPCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCategoriesViewController.m; sourceTree = "<group>"; };
+		943663A917FC2CB30020E97F /* EPExpendituresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPExpendituresViewController.h; sourceTree = "<group>"; };
+		943663AA17FC2CB30020E97F /* EPExpendituresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPExpendituresViewController.m; sourceTree = "<group>"; };
+		94B8EC3217FC38690083D95E /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		94B8EC3417FC3C730083D95E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B8EC3517FC3C730083D95E /* CoreData.framework in Frameworks */,
 				9436636D17FC0A950020E97F /* CoreGraphics.framework in Frameworks */,
 				9436636F17FC0A950020E97F /* UIKit.framework in Frameworks */,
 				9436636B17FC0A950020E97F /* Foundation.framework in Frameworks */,
@@ -104,6 +115,7 @@
 		9436636917FC0A950020E97F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94B8EC3417FC3C730083D95E /* CoreData.framework */,
 				9436636A17FC0A950020E97F /* Foundation.framework */,
 				9436636C17FC0A950020E97F /* CoreGraphics.framework */,
 				9436636E17FC0A950020E97F /* UIKit.framework */,
@@ -115,6 +127,7 @@
 		9436637017FC0A950020E97F /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				94B8EC3017FC38460083D95E /* Data */,
 				9436639F17FC0B650020E97F /* ViewControllers */,
 				9436637C17FC0A960020E97F /* Main.storyboard */,
 				9436638217FC0A960020E97F /* Images.xcassets */,
@@ -161,8 +174,20 @@
 				943663A117FC0BCC0020E97F /* EPNewExpenditures.m */,
 				943663A317FC19C60020E97F /* EPAddCategoryView.h */,
 				943663A417FC19C60020E97F /* EPAddCategoryView.m */,
+				943663A617FC2BC10020E97F /* EPCategoriesViewController.h */,
+				943663A717FC2BC10020E97F /* EPCategoriesViewController.m */,
+				943663A917FC2CB30020E97F /* EPExpendituresViewController.h */,
+				943663AA17FC2CB30020E97F /* EPExpendituresViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94B8EC3017FC38460083D95E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				94B8EC3117FC38690083D95E /* CoreDataModel.xcdatamodeld */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9436637717FC0A950020E97F /* main.m in Sources */,
+				943663AB17FC2CB30020E97F /* EPExpendituresViewController.m in Sources */,
 				943663A517FC19C60020E97F /* EPAddCategoryView.m in Sources */,
+				943663A817FC2BC10020E97F /* EPCategoriesViewController.m in Sources */,
 				943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */,
+				94B8EC3317FC38690083D95E /* CoreDataModel.xcdatamodeld in Sources */,
 				9436637B17FC0A950020E97F /* EPAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +503,7 @@
 				9436639B17FC0A960020E97F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9436639C17FC0A960020E97F /* Build configuration list for PBXNativeTarget "BudgetTests" */ = {
 			isa = XCConfigurationList;
@@ -483,8 +512,22 @@
 				9436639E17FC0A960020E97F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		94B8EC3117FC38690083D95E /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				94B8EC3217FC38690083D95E /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 94B8EC3217FC38690083D95E /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9436635F17FC0A950020E97F /* Project object */;
 }

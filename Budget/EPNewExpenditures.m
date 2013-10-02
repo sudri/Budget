@@ -7,6 +7,7 @@
 //
 
 #import "EPNewExpenditures.h"
+#import "EPAppDelegate.h"
 
 @interface EPNewExpenditures ()
 
@@ -29,7 +30,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.category = [[NSArray alloc] initWithObjects:@"foo",@"bar",@"baz",nil];
+    self.category = [[NSMutableArray alloc] init];
+    EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
+                                    initWithEntityName:@"Category"];
+    
+    //    осуществляем запрос
+    NSArray *tmp = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest
+                                                                   error:nil];
+    for (NSDictionary *d in tmp) {
+        [self.category addObject:[d valueForKey:@"name"]];
+    }
+    
     UIPickerView *categoryPicker = [[UIPickerView alloc] initWithFrame:CGRectZero];
     categoryPicker.delegate = self;
     categoryPicker.dataSource = self;
@@ -47,6 +59,8 @@
     [mypickerToolbar setItems:barItems animated:YES];
     categoryExpend.inputAccessoryView = mypickerToolbar;
 }
+
+#pragma mark Picker View
 -(void)pickerDoneClicked
 {
     NSLog(@"Done Clicked");
@@ -56,15 +70,17 @@
 {
     return 1;
 }
+
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSLog(@"Category count: %lu",(unsigned long)self.category.count);
     return self.category.count;
 }
+
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return [self.category objectAtIndex:row];
 }
+
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     categoryExpend.text = (NSString *)[self.category objectAtIndex:row];
@@ -75,6 +91,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark Buttons
 
 - (IBAction)cancelBtnPrsd:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

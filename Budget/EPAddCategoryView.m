@@ -7,6 +7,7 @@
 //
 
 #import "EPAddCategoryView.h"
+#import "EPAppDelegate.h"
 
 @interface EPAddCategoryView ()
 
@@ -40,8 +41,14 @@
 }
 
 - (IBAction)doneBtnPrsd:(id)sender {
+    EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObject *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category"
+                                                              inManagedObjectContext:appDelegate.managedObjectContext];
+    [category setValue:[self.nameCategory text] forKey:@"name"];
+    NSLog(@"friend: %@", category);
+    [appDelegate saveContext];
     //Вставить код сюда
-[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)backgroundTap:(id)sender {

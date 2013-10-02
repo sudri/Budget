@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *categoryExpend;
 @property (weak, nonatomic) IBOutlet UITextField *sumExpend;
 
-@property NSArray *category;
+@property (nonatomic, retain) NSMutableArray *category;
 
 - (IBAction)cancelBtnPrsd:(id)sender;
 - (IBAction)doneBtnPrsd:(id)sender;
