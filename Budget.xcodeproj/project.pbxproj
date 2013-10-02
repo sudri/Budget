@@ -14,13 +14,13 @@
 		9436637717FC0A950020E97F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9436637617FC0A950020E97F /* main.m */; };
 		9436637B17FC0A950020E97F /* EPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9436637A17FC0A950020E97F /* EPAppDelegate.m */; };
 		9436637E17FC0A960020E97F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9436637C17FC0A960020E97F /* Main.storyboard */; };
-		9436638117FC0A960020E97F /* EPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9436638017FC0A960020E97F /* EPViewController.m */; };
 		9436638317FC0A960020E97F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9436638217FC0A960020E97F /* Images.xcassets */; };
 		9436638A17FC0A960020E97F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9436638917FC0A960020E97F /* XCTest.framework */; };
 		9436638B17FC0A960020E97F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9436636A17FC0A950020E97F /* Foundation.framework */; };
 		9436638C17FC0A960020E97F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9436636E17FC0A950020E97F /* UIKit.framework */; };
 		9436639417FC0A960020E97F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9436639217FC0A960020E97F /* InfoPlist.strings */; };
 		9436639617FC0A960020E97F /* BudgetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9436639517FC0A960020E97F /* BudgetTests.m */; };
+		943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */ = {isa = PBXBuildFile; fileRef = 943663A117FC0BCC0020E97F /* EPNewExpenditures.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +45,14 @@
 		9436637917FC0A950020E97F /* EPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAppDelegate.h; sourceTree = "<group>"; };
 		9436637A17FC0A950020E97F /* EPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAppDelegate.m; sourceTree = "<group>"; };
 		9436637D17FC0A960020E97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9436637F17FC0A960020E97F /* EPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPViewController.h; sourceTree = "<group>"; };
-		9436638017FC0A960020E97F /* EPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPViewController.m; sourceTree = "<group>"; };
 		9436638217FC0A960020E97F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9436638817FC0A960020E97F /* BudgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9436638917FC0A960020E97F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9436639117FC0A960020E97F /* BudgetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BudgetTests-Info.plist"; sourceTree = "<group>"; };
 		9436639317FC0A960020E97F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9436639517FC0A960020E97F /* BudgetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BudgetTests.m; sourceTree = "<group>"; };
+		943663A017FC0BCC0020E97F /* EPNewExpenditures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPNewExpenditures.h; sourceTree = "<group>"; };
+		943663A117FC0BCC0020E97F /* EPNewExpenditures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPNewExpenditures.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +112,10 @@
 		9436637017FC0A950020E97F /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				9436639F17FC0B650020E97F /* ViewControllers */,
 				9436637917FC0A950020E97F /* EPAppDelegate.h */,
 				9436637A17FC0A950020E97F /* EPAppDelegate.m */,
 				9436637C17FC0A960020E97F /* Main.storyboard */,
-				9436637F17FC0A960020E97F /* EPViewController.h */,
-				9436638017FC0A960020E97F /* EPViewController.m */,
 				9436638217FC0A960020E97F /* Images.xcassets */,
 				9436637117FC0A950020E97F /* Supporting Files */,
 			);
@@ -150,6 +149,15 @@
 				9436639217FC0A960020E97F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9436639F17FC0B650020E97F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				943663A017FC0BCC0020E97F /* EPNewExpenditures.h */,
+				943663A117FC0BCC0020E97F /* EPNewExpenditures.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,8 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9436638117FC0A960020E97F /* EPViewController.m in Sources */,
 				9436637717FC0A950020E97F /* main.m in Sources */,
+				943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */,
 				9436637B17FC0A950020E97F /* EPAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
