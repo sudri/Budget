@@ -36,6 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Buttons function
+
 - (IBAction)cancelBtnPrsd:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

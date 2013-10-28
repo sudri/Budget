@@ -141,5 +141,9 @@
     }
 }
 
+-(void) deleteObject:(NSMutableArray *)array withIndex:(NSInteger)index
+{
+    [self.managedObjectContext deleteObject:[array objectAtIndex:index]];
+}
 
 @end

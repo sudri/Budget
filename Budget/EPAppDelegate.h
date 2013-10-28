@@ -16,5 +16,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+-(void) deleteObject :(NSMutableArray *) array withIndex:(NSInteger) index;
 -(void) saveContext;
 @end

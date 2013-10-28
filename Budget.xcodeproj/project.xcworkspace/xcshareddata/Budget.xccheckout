@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6C953177-29CE-4658-AC93-21E261DA3A90</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Budget</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7C50A7CA-EA6D-47B6-AEAC-6BB64E2CB44F</key>
+		<string>https://github.com/sudri/Budget.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Budget.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7C50A7CA-EA6D-47B6-AEAC-6BB64E2CB44F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/sudri/Budget.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7C50A7CA-EA6D-47B6-AEAC-6BB64E2CB44F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7C50A7CA-EA6D-47B6-AEAC-6BB64E2CB44F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Budget</string>
+		</dict>
+	</array>
+</dict>
+</plist>
