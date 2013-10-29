@@ -1,52 +1,30 @@
 //
-//  EPAppDelegate.m
+//  EPCoreData.m
 //  Budget
 //
-//  Created by Eduard Pyatnitsyn on 02.10.13.
+//  Created by Eduard Pyatnitsyn on 28.10.13.
 //  Copyright (c) 2013 Eduard Pyatnitsyn. All rights reserved.
 //
 
-#import "EPAppDelegate.h"
+#import "EPCoreData.h"
 
-@implementation EPAppDelegate
+@implementation EPCoreData
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    return YES;
-}
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+#pragma mark - Singleton
++ (EPCoreData *) sharedInstance
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    static dispatch_once_t pred;
+    static EPCoreData *shared = nil;
+    dispatch_once(&pred, ^{
+        shared = [[EPCoreData alloc] init];
+    });
+    return shared;
 }
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 
 #pragma mark - Core Data stack
 
@@ -128,5 +106,83 @@
 }
 
 
+- (void)saveContext
+{
+    NSError *error = nil;
+    //NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (_managedObjectContext != nil) {
+        if ([_managedObjectContext hasChanges] && ![_managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 
+
+# pragma mark - Delete object with index
+-(void) deleteObject:(NSMutableArray *)array withIndex:(NSInteger)index
+{
+    [_managedObjectContext deleteObject:[array objectAtIndex:index]];
+}
+
+#pragma mark - Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+    //aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+	NSError *error = nil;
+	if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _fetchedResultsController;
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            break;
+    }
+}
 @end

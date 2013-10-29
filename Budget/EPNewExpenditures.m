@@ -7,7 +7,7 @@
 //
 
 #import "EPNewExpenditures.h"
-#import "EPAppDelegate.h"
+#import "EPCoreData.h"
 
 @interface EPNewExpenditures ()
 
@@ -31,12 +31,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.category = [[NSMutableArray alloc] init];
-    EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    //EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    EPCoreData *coredata = [EPCoreData sharedInstance];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
                                     initWithEntityName:@"Category"];
     
     //    осуществляем запрос
-    NSArray *tmp = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest
+    NSArray *tmp = [coredata.managedObjectContext executeFetchRequest:fetchRequest
                                                                    error:nil];
     for (NSDictionary *d in tmp) {
         [self.category addObject:[d valueForKey:@"name"]];
@@ -100,7 +101,16 @@
 }
 
 - (IBAction)doneBtnPrsd:(id)sender {
-        //Вставить код сюда
+    EPCoreData *coredata = [EPCoreData sharedInstance];
+    //EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObject *expenditure = [NSEntityDescription insertNewObjectForEntityForName:@"Expenditure"
+                                                              inManagedObjectContext:coredata.managedObjectContext];
+    [expenditure setValue:[self.nameExpend text] forKey:@"descriprion"];
+    [expenditure setValue:[self.categoryExpend text] forKey:@"category"];
+    [expenditure setValue:[self.sumExpend text] forKey:@"sum"];
+    NSLog(@"expenditure: %@", expenditure);
+    [coredata saveContext];
+    //Вставить код сюда
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

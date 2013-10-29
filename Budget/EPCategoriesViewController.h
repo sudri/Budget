@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "EPAppDelegate.h"
+#import "EPCoreData.h"
 
 @interface EPCategoriesViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, retain) NSMutableArray *categoryName;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 //@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property EPCoreData *coreData;
 
 @end

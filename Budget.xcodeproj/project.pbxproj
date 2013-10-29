@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94082829181E8B6B0048E363 /* EPCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 94082828181E8B6B0048E363 /* EPCoreData.m */; };
+		9408282C181EF5C70048E363 /* EPExpenditures.m in Sources */ = {isa = PBXBuildFile; fileRef = 9408282B181EF5C70048E363 /* EPExpenditures.m */; };
+		941AA287181F05BD000AA625 /* EPDetailExpendituresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AA286181F05BD000AA625 /* EPDetailExpendituresViewController.m */; };
+		941AA28A181F09CA000AA625 /* EPDetailCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AA289181F09CA000AA625 /* EPDetailCategoryViewController.m */; };
 		9436636B17FC0A950020E97F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9436636A17FC0A950020E97F /* Foundation.framework */; };
 		9436636D17FC0A950020E97F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9436636C17FC0A950020E97F /* CoreGraphics.framework */; };
 		9436636F17FC0A950020E97F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9436636E17FC0A950020E97F /* UIKit.framework */; };
@@ -39,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94082827181E8B6B0048E363 /* EPCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EPCoreData.h; path = ../EPCoreData.h; sourceTree = "<group>"; };
+		94082828181E8B6B0048E363 /* EPCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EPCoreData.m; path = ../EPCoreData.m; sourceTree = "<group>"; };
+		9408282A181EF5C70048E363 /* EPExpenditures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPExpenditures.h; sourceTree = "<group>"; };
+		9408282B181EF5C70048E363 /* EPExpenditures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPExpenditures.m; sourceTree = "<group>"; };
+		941AA285181F05BD000AA625 /* EPDetailExpendituresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPDetailExpendituresViewController.h; sourceTree = "<group>"; };
+		941AA286181F05BD000AA625 /* EPDetailExpendituresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPDetailExpendituresViewController.m; sourceTree = "<group>"; };
+		941AA288181F09CA000AA625 /* EPDetailCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPDetailCategoryViewController.h; sourceTree = "<group>"; };
+		941AA289181F09CA000AA625 /* EPDetailCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPDetailCategoryViewController.m; sourceTree = "<group>"; };
 		9436636717FC0A950020E97F /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9436636A17FC0A950020E97F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9436636C17FC0A950020E97F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -178,6 +190,10 @@
 				943663A717FC2BC10020E97F /* EPCategoriesViewController.m */,
 				943663A917FC2CB30020E97F /* EPExpendituresViewController.h */,
 				943663AA17FC2CB30020E97F /* EPExpendituresViewController.m */,
+				941AA285181F05BD000AA625 /* EPDetailExpendituresViewController.h */,
+				941AA286181F05BD000AA625 /* EPDetailExpendituresViewController.m */,
+				941AA288181F09CA000AA625 /* EPDetailCategoryViewController.h */,
+				941AA289181F09CA000AA625 /* EPDetailCategoryViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -185,7 +201,11 @@
 		94B8EC3017FC38460083D95E /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				94082827181E8B6B0048E363 /* EPCoreData.h */,
+				94082828181E8B6B0048E363 /* EPCoreData.m */,
 				94B8EC3117FC38690083D95E /* CoreDataModel.xcdatamodeld */,
+				9408282A181EF5C70048E363 /* EPExpenditures.h */,
+				9408282B181EF5C70048E363 /* EPExpenditures.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -288,13 +308,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941AA287181F05BD000AA625 /* EPDetailExpendituresViewController.m in Sources */,
 				9436637717FC0A950020E97F /* main.m in Sources */,
+				9408282C181EF5C70048E363 /* EPExpenditures.m in Sources */,
+				941AA28A181F09CA000AA625 /* EPDetailCategoryViewController.m in Sources */,
 				943663AB17FC2CB30020E97F /* EPExpendituresViewController.m in Sources */,
 				943663A517FC19C60020E97F /* EPAddCategoryView.m in Sources */,
 				943663A817FC2BC10020E97F /* EPCategoriesViewController.m in Sources */,
 				943663A217FC0BCC0020E97F /* EPNewExpenditures.m in Sources */,
 				94B8EC3317FC38690083D95E /* CoreDataModel.xcdatamodeld in Sources */,
 				9436637B17FC0A950020E97F /* EPAppDelegate.m in Sources */,
+				94082829181E8B6B0048E363 /* EPCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +448,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Budget/Budget-Prefix.pch";
 				INFOPLIST_FILE = "Budget/Budget-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -438,6 +463,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Budget/Budget-Prefix.pch";
 				INFOPLIST_FILE = "Budget/Budget-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

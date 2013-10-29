@@ -7,6 +7,8 @@
 //
 
 #import "EPCategoriesViewController.h"
+#import "EPCoreData.h"
+#import "EPDetailCategoryViewController.h"
 
 @interface EPCategoriesViewController ()
 
@@ -15,6 +17,8 @@
 @implementation EPCategoriesViewController
 @synthesize categoryName;
 @synthesize tableView;
+@synthesize coreData;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -22,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -44,7 +49,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *tableIdentifer = @"TableIdentifer";
+    static NSString *tableIdentifer = @"CategoryTable";
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:tableIdentifer];
     if (cell == nil) {
@@ -61,15 +66,17 @@
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Category count: %d", self.categoryName.count);
-    EPAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
- //   [context deleteObject:[self.categoryName objectAtIndex:indexPath.row]];
 
+    coreData = [EPCoreData sharedInstance];
+
+    if( coreData.managedObjectContext == nil) NSLog(@"NILLLL");
     
-    
-//    [appDelegate deleteObject:self.categoryName withIndex:indexPath.row];
+    [coreData.managedObjectContext deleteObject:[coreData.fetchedResultsController objectAtIndexPath:indexPath]];
+    [coreData saveContext];
+    NSManagedObject *object = [coreData.fetchedResultsController objectAtIndexPath:indexPath];
+    NSLog(@"Value:%@", [object valueForKey:@"name"]);
+
     [self.categoryName removeObjectAtIndex:indexPath.row];
-//    [self.tableView reloadData]
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -86,12 +93,12 @@
          self.categoryName = [[NSMutableArray alloc] init];
     }
     [self.categoryName removeAllObjects];
-    EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
                                     initWithEntityName:@"Category"];
     
     //    осуществляем запрос
-    NSArray *tmp = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest
+    coreData = [EPCoreData sharedInstance];
+    NSArray *tmp = [coreData.managedObjectContext executeFetchRequest:fetchRequest
                                                                      error:nil];
     for (NSDictionary *d in tmp) {
         [self.categoryName addObject:[d valueForKey:@"name"]];
@@ -101,17 +108,18 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"View will apear");
+    NSLog(@"View did apear");
+    if (coreData == nil) NSLog(@"NIIIILLL");
     if (self.categoryName == nil) {
         self.categoryName = [[NSMutableArray alloc] init];
     }
     [self.categoryName removeAllObjects];
-    EPAppDelegate *appDelegate = (EPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    coreData = [EPCoreData sharedInstance];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
                                     initWithEntityName:@"Category"];
     
     //    осуществляем запрос
-    NSArray *tmp = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest
+    NSArray *tmp = [coreData.managedObjectContext executeFetchRequest:fetchRequest
                                                                    error:nil];
     for (NSDictionary *d in tmp) {
         [self.categoryName addObject:[d valueForKey:@"name"]];
@@ -123,6 +131,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailCategory"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        EPDetailCategoryViewController *destViewController = segue.destinationViewController;
+        destViewController.recipeName = [categoryName objectAtIndex:indexPath.row];
+    }
 }
 
 @end

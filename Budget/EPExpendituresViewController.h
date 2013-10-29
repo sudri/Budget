@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EPExpenditures.h"
+#import "EPCoreData.h"
+@interface EPExpendituresViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, retain) NSMutableArray *categoryName;
 
-@interface EPExpendituresViewController : UIViewController
+@property EPExpenditures *expend;
+@property (nonatomic, retain) NSMutableArray *expendArray;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property EPCoreData *coreData;
 @end
